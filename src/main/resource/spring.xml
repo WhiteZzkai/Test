@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/util
+http://www.springframework.org/schema/util/spring-util.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd">
+    <bean id="user" class="com.pojo.User" scope="singleton" lazy-init="true" init-method="myinit" destroy-method="mydestroy">
+        <property name="password" value="111"/>
+        <property name="userId" value="222"/>
+        <property name="userName" value="#{xx.name}"/>
+    </bean>
+
+    <bean id="area" class="com.pojo.Area" scope="prototype">
+        <constructor-arg index="0" value="101"/>
+        <constructor-arg index="1" value="南外"/>
+    </bean>
+
+
+    <util:properties id="xx" location="xx.properties"></util:properties>
+
+</beans>
